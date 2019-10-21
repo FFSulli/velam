@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Velam - Location de vélo à Amiens</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/custom.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+</head>
+
+<body>
+    <div class="container">
+        <header id="header">
+            <nav class="menu">
+                <a href="#header" class="logo">Velam</a>
+                <li class="menu__list-item"><a href="#map" class="menu__link--button">Réserver</a></li>
+            </nav>
+        </header>
+        <section id="slider" class="slider">
+            <aside class="slider__media">
+                <div class="slider__content-left">
+                    <img src="assets/images/slide1.svg" class="slider__image">
+                </div>
+                <div class="slider__content-right">
+                    <h2 class="slider__content-title">Bienvenue sur Velam</h2>
+                    <p class="slider__content-text">Découvrez la ville d'Amiens en réservant un vélo dans l'une de nos
+                        26 stations.</p>
+                </div>
+            </aside>
+            <div class="slider__controls">
+                <a href="#" class="slider__controls--prev-button"></a>
+                <a href="#" class="slider__controls--pause-button"></a>
+                <a href="#" class="slider__controls--next-button"></a>
+            </div>
+        </section>
+        <section id="reservationSection" class="section__reservation">
+            <div id="map" class="map__amiens"></div>
+            <aside id="reservationContainer" class="aside__reservation">
+                <div id="reservationDefault" class="container__reservation-default">
+                    <h2 class="container__reservation-title">Réserver un vélo</h2>
+                    <p class="container__reservation-paragraph">Pour réserver un vélo, cliquez sur une de nos stations
+                        et
+                        remplissez
+                        les champs de réservation.</p>
+                    <h2 class="container__reservation-title">Légende</h2>
+                    <div class="container__reservation-help">
+                        <img src="assets/icons/red.svg" alt="no-bikes-icon" class="container__reservation-nobikes-image">
+                        <p class="container__reservation-paragraph-help">Aucun vélo disponible
+                        </p>
+                    </div>
+                    <div class="container__reservation-help">
+                        <img src="assets/icons/orange.svg" alt="last-bikes-icon" class="container__reservation-lastbikes-image">
+                        <p class="container__reservation-paragraph-help">Moins de 6 vélos disponibles
+                        </p>
+                    </div>
+                    <div class="container__reservation-help">
+                        <img src="assets/icons/green.svg" alt="" class="container__reservation-bikes-image">
+                        <p class="container__reservation-paragraph-help">Plus de 6 vélos disponibles
+                        </p>
+                    </div>
+                </div>
+                <div id="reservationSelected" class="container__reservation-selected">
+                    <h3 id="stationName" class="container__reservation-selected-station-name"></h3>
+                    <div class="container__reservation-selected-station-info">
+                        <p id="status" class="container__reservation-indicator"></p>
+                        <p id="availableBikes" class="container__reservation-indicator"></p>
+                        <p id="availableBikeStands" class="container__reservation-indicator"></p>
+                        <p id="availableBanking" class="container__reservation-indicator"></p>
+                    </div>
+                    <form action="" id="reservationForm" autocomplete="off" class="form__reservation">
+                        <h2 class="container__reservation-title">Informations de réservation</h2>
+                        <div id="firstNameInput" class="div__reservation-first-name">
+                            <label></label>
+                            <input type="text" name="firstName" id="firstName" class="form__reservation-input checkInput"
+                                placeholder="Prénom" onchange="buttonStatus(this)" required>
+                        </div>
+                        <div id="lastNameInput" class="div__reservation-last-name">
+                            <label></label>
+                            <input type="text" name="lastName" id="lastName" class="form__reservation-input checkInput"
+                                placeholder="Nom" onchange="buttonStatus(this)" required>
+                        </div>
+                    </form>
+                    <div class="canvas__content">
+                        <h2 class="canvas__title">Confirmez votre réservation</h2>
+                        <p class="canvas__paragraph">Merci de confirmer votre réservation en signant ci-dessous.</p>
+                        <canvas id="canvas"></canvas>
+                        <canvas id="blankCanvas"></canvas>
+                    </div>
+                    <button id="submitReservationButton" class="form__submit-button" disabled>Réserver</button>
+                    <button id="clearCanvasButton" class="canvas__reset-button">Réinitialiser</button>
+                </div>
+            </aside>
+        </section>
+        <div id="reservationSuccess" class="container__reservation-success">
+            <h2 class="container__reservation-title" id="confirmedReservationTitle">Réservation confirmée</h2>
+            <p class="container__reservation-paragraph" id="confirmedReservationMessage">Votre vélo vous attend à la
+                station <span id="bookedStation" class="container__reservation-station-booked"></span>,
+                votre
+                réservation
+                expirera dans <span id="bookedTimer" class="container__reservation-station-timer"></span>.</p>
+            <button id="cancelReservationButton" class="form__cancel-reservation-button">Annuler ma réservation</button>
+        </div>
+    </div>
+    <script src="js/functions.js"></script>
+    <script src="js/classes/slider.js"></script>
+    <script src="js/classes/reservation.js"></script>
+    <script src="js/classes/station.js"></script>
+    <script src="js/classes/canvas.js"></script>
+    <script src="js/classes/user.js"></script>
+    <script src="js/classes/map.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeMga8sAPw4m43CMWgFu_SNunKJxjyoLg&callback=initMap"></script>
+</body>
+
+</html>
